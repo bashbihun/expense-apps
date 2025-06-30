@@ -13,3 +13,13 @@ GET http://localhost:8080/expense HTTP/1.1
 
 ###
 GET http://localhost:8080/expense/2 HTTP/1.1
+
+###
+PUT http://localhost:8080/expense/2 HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "bakso telur spesial",
+    "amount": 25000,
+    "description": "bakso isi telur spesial"
+}
