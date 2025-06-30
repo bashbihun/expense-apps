@@ -10,5 +10,6 @@ func RegisterExpenseRoute(request *gin.Engine) {
 	expense := request.Group("/expense")
 	{
 		expense.POST("/", controllers.CreateExpense)
+		expense.GET("/", controllers.GetAllExpense)
 	}
 }

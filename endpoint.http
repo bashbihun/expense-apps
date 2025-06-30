@@ -7,3 +7,6 @@ Content-Type: application/json
     "amount": 16000,
     "description": "nasi goreng dan teh"
 }
+
+###
+GET http://localhost:8080/expense HTTP/1.1

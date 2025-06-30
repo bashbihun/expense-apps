@@ -31,3 +31,14 @@ func CreateExpense(ctx *gin.Context) {
 	}
 	ctx.JSON(http.StatusCreated, gin.H{"message": "Pengeluaran berhasil ditambahkan", "data": expense})
 }
+
+func GetAllExpense(ctx *gin.Context) {
+	var expense []models.Expense
+
+	if err := config.DB.Find(&expense).Error; err != nil {
+		ctx.JSON(http.StatusInternalServerError, gin.H{"error": "gagal mengambil data"})
+		return
+	}
+
+	ctx.JSON(http.StatusOK, gin.H{"data": expense})
+}
