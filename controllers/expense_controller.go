@@ -42,3 +42,14 @@ func GetAllExpense(ctx *gin.Context) {
 
 	ctx.JSON(http.StatusOK, gin.H{"data": expense})
 }
+
+func GetExpenseById(ctx *gin.Context) {
+	id := ctx.Param("id")
+	var expense models.Expense
+
+	if err := config.DB.First(&expense, id).Error; err != nil {
+		ctx.JSON(http.StatusNotFound, gin.H{"error": "pengeluaran tidak ditemukan"})
+		return
+	}
+	ctx.JSON(http.StatusOK, gin.H{"data": expense})
+}
